@@ -1,12 +1,12 @@
-#Flask REST API for grandmas recipes
+Flask REST API for grandmas recipes
 
-## Dependencies
+### Dependencies
 
 Install [Flask](http://flask.pocoo.org):
 
     $ pip install flask
 
-##Run
+### Run
 
 Run with:
 

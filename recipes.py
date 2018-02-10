@@ -51,13 +51,16 @@ def searchRecipes(keyword):
 	results = []
 
 	# loop through loaded recipes and
-	# check for matches in ingredients
-	for recipe in recipes:
-		for ingredient in recipe:
-			if keyword.lower() in ingredient.lower():
-				results.append(recipe)
+	# check for matches in ingredients' names
+	for r in recipes:
+		for ingredient in r.ingredients:
+			if keyword.lower() in ingredient["name"].lower(): # remove case sensitivity
+				results.append(r)
 				return results
 
 # simple function to produce json from a dictionary
 def toJSON(dict):
-	return jsonify([i.serialize() for i in dict])
+	if bool(dict): # only parse json if dict is not None
+		return jsonify([i.serialize() for i in dict])
+	else:
+		return "No results" # empty array -> no results
